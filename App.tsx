@@ -15,6 +15,7 @@ import Dashboard from './components/Dashboard';
 import TrainingData from './components/TrainingData';
 import AnalyzePose from './components/AnalyzePose';
 import Settings from './components/Settings';
+import LivePoseTracker from './components/LivePoseTracker';
 
 // Mock Data Initialization
 const MOCK_DATA: ExerciseData[] = Array.from({ length: 20 }).map((_, i) => ({
@@ -156,7 +157,19 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto py-8">
             {view === 'dashboard' && <Dashboard data={trainingData} />}
             {view === 'training' && <TrainingData data={trainingData} />}
-            {view === 'analyze' && <AnalyzePose settings={settings} onAnalysisComplete={handleNewAnalysis} />}
+            {view === 'analyze' && (
+  <>
+    <AnalyzePose
+      settings={settings}
+      onAnalysisComplete={handleNewAnalysis}
+    />
+
+    {/* Live Camera Pose Tracking */}
+    <div className="mt-6 flex justify-center">
+      <LivePoseTracker />
+    </div>
+  </>
+)}
             {view === 'settings' && <Settings settings={settings} onSave={setSettings} />}
           </div>
         </div>
