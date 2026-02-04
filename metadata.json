@@ -1,0 +1,5 @@
+{
+  "name": "PoseAI Coach",
+  "description": "A personalized fitness coach prototype using Computer Vision and Gemini API for pose estimation and feedback.",
+  "requestFramePermissions": []
+}
